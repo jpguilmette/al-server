@@ -1,6 +1,6 @@
-import { Project } from "./Project";
-import { Category } from "./Category";
-import { uuidv4 } from "../utils/UUID";
+import { Project } from './Project';
+import { Category } from './Category';
+import { uuidv4 } from '../utils/UUID';
 
 export class Task {
   constructor(
@@ -9,7 +9,7 @@ export class Task {
     public project: Project[],
     public categories: Category[],
     public deadline?: Date,
-    public done?: boolean
+    public done?: boolean,
   ) {
     if (done === undefined) {
       done = false;
