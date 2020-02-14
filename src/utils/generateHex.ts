@@ -1,19 +1,25 @@
 const goldenRatio: number = 0.618033988749895;
 export const generateHex = (saturation: number, value: number): string => {
   let hue = (goldenRatio + Math.random()) % 1;
-  return hsvToRgb(hue, saturation, value);
+  return HSVtoRGB(hue, saturation, value);
 };
 
-const hsvToRgb = (h: number, s: number, v: number): string => {
-  let hi: number = h * 6;
-  let f: number = h * 6 - hi;
-  let p: number = v * (1 - s);
-  let q: number = v * (1 - f * s);
-  let t: number = v * (1 - (1 - f) * s);
+const HSVtoRGB = (h: number, s: number, v: number): string => {
   let r: number = 0;
   let g: number = 0;
   let b: number = 0;
-  switch (hi) {
+  let i: number;
+  let f: number;
+  let p: number;
+  let q: number;
+  let t: number;
+
+  i = Math.floor(h * 6);
+  f = h * 6 - i;
+  p = v * (1 - s);
+  q = v * (1 - f * s);
+  t = v * (1 - (1 - f) * s);
+  switch (i % 6) {
     case 0:
       r = v;
       g = t;
@@ -45,5 +51,10 @@ const hsvToRgb = (h: number, s: number, v: number): string => {
       b = q;
       break;
   }
-  return `#${r * 256}${g * 256}${b * 256}`;
+
+  return `#${getHexValue(r)}${getHexValue(g)}${getHexValue(b)}`;
+};
+
+const getHexValue = (value: number): string => {
+  return Math.round(value * 255).toString(16);
 };
