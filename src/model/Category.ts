@@ -1,5 +1,5 @@
-import { rainbow } from '../utils/rainbow';
 import { uuidv4 } from '../utils/UUID';
+import { generateHex } from '../utils/generateHex';
 
 export interface ICategory {
   id: string;
@@ -10,7 +10,7 @@ export interface ICategory {
 export class Category implements ICategory {
   constructor(public title: string, public hexColor?: string) {
     if (!hexColor) {
-      this.hexColor = rainbow(2, 1);
+      this.hexColor = generateHex(0.4, 0.95);
     }
 
     this.id = uuidv4();
