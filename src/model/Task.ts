@@ -6,7 +6,7 @@ export class Task {
   constructor(
     public title: string,
     public description?: string,
-    public projects?: Project[],
+    public project?: Project,
     public categories?: Category[],
     public deadline?: Date,
     public done?: boolean,
