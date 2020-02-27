@@ -10,7 +10,7 @@ export interface ICategory {
 export class Category implements ICategory {
   constructor(public title: string, public hexColor?: string) {
     if (!hexColor) {
-      this.hexColor = generateHex(0.4, 0.95);
+      this.hexColor = generateHex(0.55, 1);
     }
 
     this.id = uuidv4();

@@ -11,7 +11,7 @@ export interface IProject {
 export class Project implements IProject {
   constructor(public title: string, public hexColor?: string) {
     if (!hexColor) {
-      this.hexColor = generateHex(0.8, 0.95);
+      this.hexColor = generateHex(0.75, 0.9);
     }
 
     this.id = uuidv4();
